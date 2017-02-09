@@ -8,6 +8,9 @@
 require 'random_data'
 
 #create posts
+
+
+
 50.times do
   Post.create!(
 
@@ -26,6 +29,19 @@ posts = Post.all
     body: RandomData.random_paragraph
   )
 end
+
+Post.find_or_create_by!(
+
+  title: "How To Save America",
+  body: "America is headed for disaster. Get out while you still can."
+)
+
+Comment.find_or_create_by!(
+
+  #I feel like I'm missing how to tie the comment to the post.
+  body: "I've had it with these comments. I quite Facebook!"
+
+)
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
