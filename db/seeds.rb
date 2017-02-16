@@ -9,8 +9,6 @@ require 'random_data'
 
 #create posts
 
-
-
 50.times do
   Post.create!(
 
@@ -38,17 +36,9 @@ Post.find_or_create_by!(
 
 Comment.find_or_create_by!(
 
-  #I feel like I'm missing how to tie the comment to the post.
   body: "I've had it with these comments. I quite Facebook!"
 
 )
-
-puts "Seed finished"
-puts "#{Post.count} posts created"
-puts "#{Comment.count} comments created"
-
-
-
 
 #create advertisements
 25.times do
@@ -61,5 +51,22 @@ puts "#{Comment.count} comments created"
 end
 advertisements = Advertisement.all
 
-puts "Seed #2 finished"
+
+
+#create questions
+75.times do
+  Question.create!(
+
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    resolved: false
+  )
+end
+questions = Question.all
+
+
+
+puts "#{Post.count} posts created"
+puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisements created"
+puts "#{Question.count} questions created"
