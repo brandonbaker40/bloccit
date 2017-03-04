@@ -4,4 +4,9 @@ module ApplicationHelper
     css_class << ' has-error' if errors.any?
     content_tag :div, capture(&block), class: css_class
   end
+
+  def avatar_url(user)
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    "http://www.gravatar.com/avatar/1a0200e30ccbd558ceb203041cf20897.jpg?s=48"
+  end
 end
