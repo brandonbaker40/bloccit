@@ -51,8 +51,10 @@ end
 
 Post.find_or_create_by!(
 
+  topic:  topics.sample,
   title: "How To Save America",
-  body: "America is headed for disaster. Get out while you still can."
+  body: "America is headed for disaster. Get out while you still can.",
+  user:  users.sample
 )
 
 Comment.find_or_create_by!(
@@ -94,7 +96,7 @@ questions = Question.all
     price: RandomData.random_number
   )
 end
-posts = Post.all
+posts = SponsoredPost.all
 
 user = User.first
  user.update_attributes!(
